@@ -23,7 +23,7 @@ class EveryDNS
 	var $page		= array();
 	var $domains	= array();
 
-	function EveryDNS($config)
+	function __construct($config)
 	{
 		$this->config = array_merge($config,$this->config);	
 	}
