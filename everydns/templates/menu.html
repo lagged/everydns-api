@@ -1,0 +1,18 @@
+<!-- BEGIN: menu -->
+{include file="header.html"}
+<table cellpadding=0 cellspacing=0 id="menu">
+	<tr>
+		<td align=left>
+			<table bgcolor=white cellpadding=0 cellspacing=0 border=0>
+				<TR>
+					{foreach from=$menu item=item}
+					<td style="border-left: 1px solid black"><a href="index.php?page={$item.item}" class={$item.class}>&nbsp;&nbsp;{$item.desc}&nbsp;&nbsp;</a></td>
+					{/foreach}
+					<td style="border-left: 1px solid black; border-right: 1px solid black;"><a href="index.php?action=logout" class=menutophi>&nbsp;&nbsp;LOGOUT&nbsp;&nbsp;</a></td>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<hr style="width:600px">

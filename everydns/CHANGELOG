@@ -1,0 +1,10 @@
+[2009-02-06]
+* 1.7 release
+* Created new modify method
+* fixed previous problems of it just not working at all
+
+[2005-08-18]
+* 1.2 release
+* Fixed "cname parking.everydns.net" problem - need to add new domains before we remove them
+* Converted file-o-functions to easier to use class
+

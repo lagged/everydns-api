@@ -1,0 +1,35 @@
+{include file="header.html"}
+<div align="center">
+
+<div>
+	<h2>{$msg}</h2>
+	<h2>Script brought to you by:<br /><a href="http://www.ultrize.com">Ultrize internet technology</a></h2>
+</div>
+
+<div style="width:300px;">
+<form action="index.php" method="POST">
+<input name="action" type="hidden" value="login">
+	<fieldset>
+		<legend>EveryDNS Login
+		<table>
+			<tr>
+				<td>Login Name</td><td><input type="text" name="user"></td>
+			</tr>
+			<tr>
+				<td>Password</td><td><input type="password" name="pass"></td>
+			</tr>
+			<tr>
+				<td></td><td align="right"><input type="submit" value="GO"></td>
+			</tr>
+		</table>
+	</fieldset>
+</form>
+</div>
+</div>
+
+{literal}
+<script>
+	document.forms[0].elements[2].focus();
+</script>
+{/literal}
+{include file="footer.html"}

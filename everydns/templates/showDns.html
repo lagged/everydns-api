@@ -1,0 +1,23 @@
+<form action="index.php" method="POST">
+<input type="hidden" name="action" value="addDomain">
+
+	<table align="center" style="border:1px solid #ababCD;width:500px">
+		<tr style="background:#ABABAB">
+			<th>Site</th>
+			<th>Site ID</th>
+			<th>Opts</th>
+		</tr>
+		{foreach from=$domains key=domain item=did}
+		<tr style="background:{cycle values="#FFFFFF,#EFEFEF"}">
+			<td><a href="index.php?page=editDns&did={$did}&domainName={$domain}">{$domain}</a></td>
+			<td><a href="index.php?page=editDns&did={$did}&domainName={$domain}">{$did}</a></td>
+			<td><a href="index.php?action=delDomain&did={$did}">[DEL]</a></td>
+		</tr>
+		{/foreach}
+	</table>
+
+<div style="text-align:center">
+		<input type="text" name="newDomain"><button type="submit">New Domain</button>
+</div>
+
+</form>

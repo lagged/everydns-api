@@ -1,0 +1,98 @@
+<h2 align="center">Current domain configuration</h2>
+<form action="index.php" method="POST">
+<input type="hidden" name="did" value="{$did}">
+<input type="hidden" name="domainName" value="{$domainName}">
+<input type="hidden" name="action" value="saveDns">
+<center><a href="index.php?action=setDefaults&did={$did}&domain={$domainName}">Reset to Defaults</a></center>
+<table align="center" style="border:1px solid #adadef;width:700px;">
+	<tr style="background:#ADADAD">
+		<th>FQDN</th>
+		<th>TYPE</th>
+		<th>MX</th>
+		<th>VALUE</th>
+		<th>TTL</th>
+		<th></th>
+	</tr>	
+	{foreach from=$domains item=domain}
+	<tr style="background:{cycle values="#FFFFFF,#EFEFEF"}">
+		<td>{$domain.fqdn}</td>
+		<td>{$domain.rec}</td>
+		<td>{$domain.mx}</td>
+		<td>{$domain.value}</td>
+		<td>{$domain.ttl}</td>
+		<td><a href="index.php?action=delDns&rid={$domain.rid}&md5domain={$domain.md5domain}&did={$did}&domainName={$domainName}">[DEL]</a></td>
+	</tr>
+	{/foreach}
+</table>
+<table align="center" style="width:700px;">
+	<Tr>
+		<td colspan="5" class="dark">Add new record - <small>Use the entire domain name you wish to use e.g. &quot;test.{$smarty.get.domainName}&quot;</small></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="fqdn" size="32"></td>
+		<td>
+			<select name="record">
+            <option value="1">A</option>
+            <option value="2">CNAME</option>
+            <option value="3">NS</option>
+            <option value="4">MX</option>
+        	</select>
+		</td>
+		<td><input type="text" name="mx" size="2"></td>
+		<td><input type="text" name="value" size="32"></td>
+		<td><input type="text" name="ttl" size="6"></td>
+		<td><input type="submit" value="Add"></td>
+	</tr>
+</table>
+</form>
+
+<table id="advanced" align="center">
+	<tr>
+		<td colspan="2">
+<br /><h2 style="border-bottom:1px solid black;display:inline">Advanced Domain Settings</h2><Br /><Br />
+	<h2>Mass IP Renumbering</h2>
+		</td>
+	</tr>
+	<tr>
+		<td style="width:200px;vertical-align:top">
+	<p>When you move servers, renumbering can be very painful. This tool allows the system to look for a given IP/IP Stem and replaces it with a new IP/IP stem.</p>
+	<p><B>WARNING!</b> EveryDNS does not currently support editing. This means that this tool is required to delete the old record and add the new record.  There is a possibility that if something goes wrong you could lose data. Please make sure and print out the current DNS settings before uisng this tool.</p>
+		</td>
+		<td>
+			<table align="center">
+			<form action="index.php" method="POST">
+			<input type="hidden" name="did" value="{$did}">
+			<input type="hidden" name="domainName" value="{$domainName}">
+			<input type="hidden" name="action" value="renumberDNS">
+			<tr>
+				<th style="vertical-align:top">Original IP/IP Stem<br />
+				<input type="text" size="15" maxlength="15" name="originalIP"><Br />
+					<sub><i>Examples:<br>
+					192.168.0.1<br>
+					192.168.0.<br>
+					192.168.<br>
+					192.</i></sub>
+				</th>
+			</tr>
+			<tr>
+				<th style="vertical-align:top">Replacement IP/IP Stem<br />
+				<input type="text" size="15" maxlength="15" name="newIP"><Br />
+					<sub>
+					<i>Examples:<br>
+					192.168.0.1<br>
+					192.168.0.<br>
+					192.168.<br>
+					192.</i></sub>
+
+				</th>
+			</tr>
+			<tr>
+				<th colspan=2 style="text-align:right"><input type="submit" value="Renumber"></th>
+			</tr>
+
+			</form>
+			</table>
+		</td>
+	</tr>
+</table>
+					
