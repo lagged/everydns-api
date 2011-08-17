@@ -14,7 +14,7 @@ $config['defaultTTL']	= '86400';
 /**********************/
 /* Path configuration */
 /**********************/
-$config['cookie_dir']	= ini_get('session.save_path');
+$config['cookie_dir']	= __DIR__ . '/sessions';
 $config['template_dir']	= __DIR__ . '/templates/';
 $config['page_dir']		= __DIR__ . '/pages/';
 $config['action_dir']	= __DIR__ . '/actions/';
