@@ -15,10 +15,10 @@ $config['defaultTTL']	= '86400';
 /* Path configuration */
 /**********************/
 $config['cookie_dir']	= ini_get('session.save_path');
-$config['template_dir']	= 'templates/';
-$config['page_dir']		= 'pages/';
-$config['action_dir']	= 'actions/';
-$config['include_dir']	= 'include/';
+$config['template_dir']	= __DIR__ . '/templates/';
+$config['page_dir']		= __DIR__ . '/pages/';
+$config['action_dir']	= __DIR__ . '/actions/';
+$config['include_dir']	= __DIR__ . '/include/';
 
 
 //Version Information
